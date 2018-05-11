@@ -1,6 +1,5 @@
 using System;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using BandTracker;
 
@@ -29,27 +28,27 @@ namespace BandTracker.Models
       _id = id;
     }
 
-    private int GetId()
+    public int GetId()
     {
       return _id;
     }
 
-    private string GetName()
+    public string GetName()
     {
       return _name;
     }
 
-    private string GetLocation()
+    public string GetLocation()
     {
       return _location;
     }
 
-    private int GetStar()
+    public int GetStar()
     {
       return _star;
     }
 
-    private string GetPhone()
+    public string GetPhone()
     {
       return _phone;
     }
@@ -61,7 +60,7 @@ namespace BandTracker.Models
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
 
-      cmd.CommandText = "INSERT INTO venue (name,locations,stars,hours,phone) VALUES (@ItemName,@ItemLocation,@ItemStar,@ItemHour,@ItemPhone);"
+      cmd.CommandText = "INSERT INTO venue (name,locations,stars,hours,phone) VALUES (@ItemName,@ItemLocation,@ItemStar,@ItemHour,@ItemPhone);";
 
 
       MySqlParameter name = new MySqlParameter();
@@ -81,7 +80,7 @@ namespace BandTracker.Models
 
       MySqlParameter hour = new MySqlParameter();
       hour.ParameterName = "@ItemHour";
-      hour.Value = this._dueDate;
+      hour.Value = this._hour;
       cmd.Parameters.Add(hour);
 
       MySqlParameter phone = new MySqlParameter();
@@ -114,7 +113,7 @@ namespace BandTracker.Models
         int id = rdr. GetInt32(0);
         string name = rdr.GetString(1);
         string location = rdr.GetString(2);
-        int star = rdr.GetString(3);
+        int star = rdr.GetInt32(3);
         string hour = rdr.GetString(4);
         string phone = rdr.GetString(5);
         Venue MyVenue = new Venue(name,location,star,hour,phone,id);
@@ -159,7 +158,7 @@ namespace BandTracker.Models
       int VenueId = 0;
       string name = "" ;
       string location = "" ;
-      int star = "" ;
+      int star = 0 ;
       string hour = "" ;
       string phone = "" ;
 
@@ -169,7 +168,7 @@ namespace BandTracker.Models
         VenueId = rdr. GetInt32(0);
         name = rdr.GetString(1);
         location = rdr.GetString(2);
-        star = rdr.GetString(3);
+        star = rdr.GetInt32(3);
         hour = rdr.GetString(4);
         phone = rdr.GetString(5);
       }
@@ -255,8 +254,8 @@ namespace BandTracker.Models
       {
         int id = rdr.GetInt32(0);
         string name = rdr.GetString(1);
-        string song = rdr.GetIntString(2);
-        Band MyBand = new Band(name,age,id);
+        string song = rdr.GetString(2);
+        Band MyBand = new Band(name,song,id);
         Bands.Add(MyBand);
       }
       conn.Close();

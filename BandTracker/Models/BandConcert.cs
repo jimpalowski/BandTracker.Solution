@@ -1,12 +1,11 @@
 using System;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using BandTracker;
 
 namespace BandTracker.Models
 {
-  public class Venue
+  public class Band
   {
     // private members
     private int _id;
@@ -14,7 +13,7 @@ namespace BandTracker.Models
     private string _song;
 
     // constructor
-    public Venue(string name, string song, int id = 0)
+    public Band(string name, string song, int id = 0)
     {
       _name = name;
       _song = song;
@@ -22,15 +21,15 @@ namespace BandTracker.Models
     }
 
     // getters
-    private int GetId()
+    public int GetId()
     {
       return _id;
     }
-    private string GetName()
+    public string GetName()
     {
       return _name;
     }
-    private string GetSong()
+    public string GetSong()
     {
       return _song;
     }
@@ -119,7 +118,7 @@ namespace BandTracker.Models
       cmd.Parameters.Add(searchId);
 
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
-      int VenueId = 0;
+      int BandId = 0;
       string name = "" ;
       string song = "" ;
 
@@ -160,7 +159,7 @@ namespace BandTracker.Models
         int id = rdr. GetInt32(0);
         string name = rdr.GetString(1);
         string location = rdr.GetString(2);
-        int star = rdr.GetString(3);
+        int star = rdr.GetInt32(3);
         string hour = rdr.GetString(4);
         string phone = rdr.GetString(5);
         Venue MyVenue = new Venue(name,location,star,hour,phone,id);
@@ -174,7 +173,7 @@ namespace BandTracker.Models
       return Venues;
     }
 
-    public void AddJoinTable(Vanue newVenue)
+    public void AddJoinTable(Venue newVenue)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
