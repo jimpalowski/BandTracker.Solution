@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="https://cdn4.iconfinder.com/data/icons/rock-music-instruments/154/rock-band-drum-kit-music-512.png">
+    <title>Band Tracker</title>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">ORION</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a target="_blank" class="nav-link" href="/bands">Bands</a>
+          </li>
+          <li class="nav-item active">
+            <a target="_blank" class="nav-link" href="/venues">Venue</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-md-0" action="/search" method="post" name="search">
+          <input class="form-control" type="text" placeholder="Search" name="searchdate" >
+        </form>
+      </div>
+    </nav>
+    <br>
+    <div class="container">
+      <div class="jumbotron" style="background-image: url(http://sites.showitfast.com/57929/149683/27flora_nova_design_romantic_green_wedding_sodo_park.jpg)">
+        <br><br><br><br><br><br><br><br><br><br>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          @if(Model != null)
+          {
+            <h1>The List of Bands in Seattle Area</h1>
+            @foreach(var venue in @Model["MyVenues"])
+            {
+              <ul>
+                <li><b>Name: </b>@venue.GetName()</li>
+                <li><b>Location: </b>@venue.GetLocation()</li>
+                <li><b>Stars: </b>@venue.GetStar()</li>
+                <li><b>Hours: </b>@venue.GetBusinessHour()</li>
+                <li><b>Phone: </b>@venue.GetPhone()</li>
+                <br>
+              </ul>
+            }
+            <div class="row">
+
+              <form action="/venues/artists/@Model["MyBand"].GetId() method="post">
+                <div class="col-12">
+                  <h1>Add a new Venue</h1>
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" name="location" class="form-control">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="stars">Stars</label>
+                    <input type="text" name="stars" class="form-control">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="hours">Hours</label>
+                    <input type="text" name="hours" class="form-control">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" name="phone" class="form-control">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <button type="submit" name="button" class="btn btn-lg btn-danger">Add Venue</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" id="foot">
+      <b><hr class="my-4"></b>
+      <p align="center">&#169; 2018 <a href="/" >Band Tracker App</a>, by Rio Atmadja .</p>
+    </div>
+  </footer>
+
+</html>

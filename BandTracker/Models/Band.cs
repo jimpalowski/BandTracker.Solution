@@ -79,7 +79,7 @@ namespace BandTracker.Models
         int id = rdr. GetInt32(0);
         string name = rdr.GetString(1);
         string song = rdr.GetString(2);
-        Band MyBand = new Band(name,song);
+        Band MyBand = new Band(name,song,id);
         MyBandLists.Add(MyBand);
       }
       conn.Close();

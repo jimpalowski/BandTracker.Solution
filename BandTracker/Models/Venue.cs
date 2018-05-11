@@ -53,6 +53,10 @@ namespace BandTracker.Models
       return _phone;
     }
 
+    public string GetBusinessHour()
+    {
+      return _hour;
+    }
     // Create
     public void Save()
     {

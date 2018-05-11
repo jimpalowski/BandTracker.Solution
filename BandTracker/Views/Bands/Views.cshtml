@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="https://cdn4.iconfinder.com/data/icons/rock-music-instruments/154/rock-band-drum-kit-music-512.png">
+    <title>Band Tracker</title>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">ORION</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a target="_blank" class="nav-link" href="/bands">Bands</a>
+          </li>
+          <li class="nav-item active">
+            <a target="_blank" class="nav-link" href="/venues">Venue</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-md-0" action="/search" method="post" name="search">
+          <input class="form-control" type="text" placeholder="Search" name="searchdate" >
+        </form>
+      </div>
+    </nav>
+    <br>
+    <div class="container">
+      <div class="jumbotron" style="background-image: url(http://sites.showitfast.com/57929/149683/27flora_nova_design_romantic_green_wedding_sodo_park.jpg)">
+        <br><br><br><br><br><br><br><br><br><br>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          @if(Model != null)
+          {
+            <h1>The List of Bands in Seattle Area</h1>
+            @foreach(var band in Model)
+            {
+              <ul>
+                <li><b>Name: </b>@band.GetName()</li>
+                <li><b>Location: </b>@band.GetSong()</li>
+                <li><b>More Information about the band:</b> <a href="/bands/@band.GetId()"> http://seattle.band.org/MyBandBand/@band.GetId()</a></li>
+                <br>
+              </ul>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" id="foot">
+      <b><hr class="my-4"></b>
+      <p align="center">&#169; 2018 <a href="/" >Band Tracker App</a>, by Rio Atmadja .</p>
+    </div>
+  </footer>
+
+</html>
