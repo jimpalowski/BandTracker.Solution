@@ -148,7 +148,7 @@ namespace BandTracker.Models
                             JOIN venue ON ( bands_venues.venue_id = venue.id) where bands.id = @banId;";
 
       MySqlParameter bandId = new MySqlParameter();
-      bandId.ParameterName = "@bandId";
+      bandId.ParameterName = "@banId";
       bandId.Value = _id;
       cmd.Parameters.Add(bandId);
 
@@ -178,7 +178,7 @@ namespace BandTracker.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO bands_venues (band_id,venue_id) VALUES (@bandId,@venuId);";
+      cmd.CommandText = @"INSERT INTO bands_venues (band_id,venue_id) VALUES (@bandId,@venueId);";
 
       MySqlParameter venue_id = new MySqlParameter();
       venue_id.ParameterName = "@venueId";

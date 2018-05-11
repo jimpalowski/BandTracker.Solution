@@ -271,7 +271,7 @@ namespace BandTracker.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO bands_venues (band_id,venue_id) VALUES (@bandId,@venuId);";
+      cmd.CommandText = @"INSERT INTO bands_venues (band_id,venue_id) VALUES (@bandId,@venueId);";
 
       MySqlParameter venue_id = new MySqlParameter();
       venue_id.ParameterName = "@venueId";

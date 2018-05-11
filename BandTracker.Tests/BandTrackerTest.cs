@@ -54,5 +54,51 @@ namespace BandTracker.Test
 
     }
 
+    [TestMethod]
+    public void TestCreateBands()
+    {
+      Band MyBand = new Band("John Jones","ABC Mouse");
+      MyBand.Save();
+      Assert.AreEqual("John Jones",MyBand.GetName());
+    }
+
+    [TestMethod]
+    public void TestFindBands()
+    {
+      Band newBand = new Band("James Bond","Sky Fall");
+      newBand.Save();
+      Band foundBand = Band.Find(newBand.GetId());
+      Assert.AreEqual("James Bond", foundBand.GetName());
+    }
+
+
+    [TestMethod]
+    public void TestVenueGetAllBands()
+    {
+      Venue newVenue = new Venue("Sobak Sodo", "24343 Utah Ave S Seattle WA 98204",5 , "8AM-12PM", "(206)532-7293");
+      newVenue.Save();
+      Band newBand = new Band("James Harrison", "Steeler Nation");
+      newBand.Save();
+      newVenue.AddJoinTable(newBand);
+
+      List<Band> MyBands = newVenue.GetBands();
+      Assert.AreEqual("James Harrison" , MyBands[0].GetName());
+    }
+
+    [TestMethod]
+    public void TestBandGetAllVenues()
+    {
+      Band newBand = new Band("Tom Brady", "NewEngland Patriot");
+      newBand.Save();
+
+      Venue newVenue = new Venue("Sobak Sodo", "24343 Utah Ave S Seattle WA 98204",5 , "8AM-12PM", "(206)532-7293");
+      newVenue.Save();
+
+      newBand.AddJoinTable(newVenue);
+
+      List<Venue> MyVenues = newBand.GetVenues();
+      Assert.AreEqual("Sobak Sodo", MyVenues[0].GetName());
+    }
+
   }
 }

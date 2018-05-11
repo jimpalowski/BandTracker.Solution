@@ -1,0 +1,15 @@
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\bandtracker.tests.deps.json
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\bandtracker.tests.runtimeconfig.json
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\bandtracker.tests.runtimeconfig.dev.json
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\bandtracker.tests.dll
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\bandtracker.tests.pdb
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\bandtracker.dll
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\bin\Debug\netcoreapp1.1\bandtracker.pdb
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\obj\Debug\netcoreapp1.1\bandtracker.tests.csproj.CoreCompileInputs.cache
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\obj\Debug\netcoreapp1.1\bandtracker.tests.AssemblyInfoInputs.cache
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\obj\Debug\netcoreapp1.1\bandtracker.tests.AssemblyInfo.cs
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\obj\Debug\netcoreapp1.1\bandtracker.tests.dll
+C:\Users\rioat\Documents\Epicodus\C#\Projects\BandTracker.Solution\BandTracker.Tests\obj\Debug\netcoreapp1.1\bandtracker.tests.pdb
