@@ -12,6 +12,10 @@ _This web applications allows users to create a band tracker_
 * MySql
 * PhpMyadmin
 * MAMP
+* Import the .sql file to MySql
+
+##### User Interface
+<p><img src="https://github.com/g0tmilk/BandTracker.Solution/blob/master/BandTracker/img/UI.PNG?raw=true"></p>
 
 ##### Known Bugs
 _So far there are no bugs_
@@ -48,7 +52,7 @@ _specs for users_
 3. Create Join table
  * CREATE TABLE `band_tracker`.`bands_venues` ( `id` INT NOT NULL AUTO_INCREMENT , `band_id` INT NOT NULL , `venue_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
- 
+
 ### License
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
