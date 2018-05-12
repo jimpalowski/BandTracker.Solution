@@ -20,10 +20,10 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a target="_blank" class="nav-link" href="/bands">Bands</a>
+            <a target="_blank" class="nav-link" href="/bands/view">Bands</a>
           </li>
           <li class="nav-item active">
-            <a target="_blank" class="nav-link" href="/venues">Venue</a>
+            <a target="_blank" class="nav-link" href="/venues/view">Venue</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-md-0" action="/search" method="post" name="search">
@@ -33,29 +33,35 @@
     </nav>
     <br>
     <div class="container">
-      <div class="jumbotron" style="background-image: url(http://sites.showitfast.com/57929/149683/27flora_nova_design_romantic_green_wedding_sodo_park.jpg)">
+      <div class="jumbotron" style="background-image: url(http://sites.showitfast.com/57929/149683/27flora_nova_design_romantic_green_wedding_sodo_park.jpg);border:5px solid black">
         <br><br><br><br><br><br><br><br><br><br>
       </div>
-
       <div class="row">
-        <div class="col-12">
-          @if(Model != null)
-          {
-            <h1>The List of Bands in Seattle Area</h1>
-            @foreach(venue vanue in Model)
-            {
-              <ul>
-                <li><b>Name: </b>@vanue.GetName()</li>
-                <li><b>Location: </b>@venue.GetLocation()</li>
-                <li><b>Stars: </b>@venue.GetStar()</li>
-                <li><b>Hours: </b>@venue.GetHour<()</li>
-                <li><b>Phone: </b>@venue.GetPhone()</li>
-                <br>
-              </ul>
-            }
-          }
-        </div>
+
+        <form action="/bands/createform" method="post">
+          <div class="col-12">
+            <h1>Add a new band</h1>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="song">Song</label>
+              <input type="text" name="song" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <button type="submit" name="button" class="btn btn-lg btn-danger">Add Band</button>
+            </div>
+          </div>
+        </form>
       </div>
+
     </div>
   </body>
   <!-- Footer -->

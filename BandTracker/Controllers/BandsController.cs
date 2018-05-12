@@ -17,6 +17,7 @@ public class BandsController : Controller
       return View("CreateForm");
     }
   }
+
   [HttpGet("/bands/{id}")]
   public ActionResult Results(int id)
   {
@@ -26,5 +27,40 @@ public class BandsController : Controller
     model.Add("MyBand",MyBand);
     model.Add("MyVenues",MyVenues);
     return View(model);
+  }
+
+  [HttpGet("/bands/create")]
+  public ActionResult Create()
+  {
+    return View("CreateForm");
+  }
+
+  [HttpPost("/bands/createform")]
+  public ActionResult CreateForm()
+  {
+    string name = Request.Form["name"];
+    string song = Request.Form["song"];
+    Band NewBand = new Band(name,song);
+    NewBand.Save();
+    List<Band> BandLists = Band.GetAll();
+    return View("Views",BandLists);
+  }
+
+  [HttpPost("/bands/artists/{id}")]
+  public ActionResult NewBands(int id)
+  {
+    string name = Request.Form["name"];
+    string song = Request.Form["song"];
+
+    Band NewBand = new Band(name,song);
+    NewBand.Save();
+
+    Venue foundVenue = Venue.Find(id);
+    foundVenue.AddJoinTable(NewBand);
+
+    List<Band> ListBands = foundVenue.GetBands();
+
+    return View(ListBands);
+
   }
 }

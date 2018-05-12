@@ -20,7 +20,7 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a target="_blank" class="nav-link" href="/bands/views">Bands</a>
+            <a target="_blank" class="nav-link" href="/bands/view">Bands</a>
           </li>
           <li class="nav-item active">
             <a target="_blank" class="nav-link" href="/venues/view">Venue</a>
@@ -41,31 +41,45 @@
         <div class="col-12">
           @if(Model != null)
           {
-            <h1>The List of Bands in Seattle Area</h1>
-            @foreach(var band in Model)
+            <h1>The List of Bands that have played in this venue</h1>
+            @foreach(var band in @Model["ListOfBands"])
             {
               <ul>
                 <li><b>Name: </b>@band.GetName()</li>
                 <li><b>Location: </b>@band.GetSong()</li>
-                <li><b>More Information about the band:</b> <a href="/bands/@band.GetId()"> http://seattle.band.org/MyBandBand/@band.GetId()</a></li>
                 <br>
               </ul>
             }
+            <div class="row">
+
+              <form action="/bands/artists/@Model["MyVenue"].GetId()"  method="post">
+                <div class="col-12">
+                  <h1>Add a new Band</h1>
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="song">Song</label>
+                    <input type="text" name="song" class="form-control">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <button type="submit" name="button" class="btn btn-lg btn-danger">Add Band</button>
+                  </div>
+                </div>
+              </form>
+            </div>
           }
         </div>
       </div>
-      <div class="row">
-        <form action="/bands/create" >
-          <div class="col-12">
-            <div class="form-group">
-              <button type="submit" name="button" class="btn btn-lg btn-danger">Add Band</button>
-            </div>
-          </div>
-        </form>
-      </div>
     </div>
   </body>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="container" id="foot">

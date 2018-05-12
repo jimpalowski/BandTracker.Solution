@@ -20,7 +20,7 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a target="_blank" class="nav-link" href="/bands/views">Bands</a>
+            <a target="_blank" class="nav-link" href="/bands/view">Bands</a>
           </li>
           <li class="nav-item active">
             <a target="_blank" class="nav-link" href="/venues/view">Venue</a>
@@ -36,36 +36,62 @@
       <div class="jumbotron" style="background-image: url(http://sites.showitfast.com/57929/149683/27flora_nova_design_romantic_green_wedding_sodo_park.jpg);border:5px solid black">
         <br><br><br><br><br><br><br><br><br><br>
       </div>
+      <div class="row">
 
-      <div class="row">
-        <div class="col-12">
-          @if(Model != null)
-          {
-            <h1>The List of Bands in Seattle Area</h1>
-            @foreach(var band in Model)
-            {
-              <ul>
-                <li><b>Name: </b>@band.GetName()</li>
-                <li><b>Location: </b>@band.GetSong()</li>
-                <li><b>More Information about the band:</b> <a href="/bands/@band.GetId()"> http://seattle.band.org/MyBandBand/@band.GetId()</a></li>
-                <br>
-              </ul>
-            }
-          }
-        </div>
-      </div>
-      <div class="row">
-        <form action="/bands/create" >
+        <form action="/venues/update" method="post">
+          <div class="col-12">
+            <h1>Update a new Venue</h1>
+            <div class="form-group">
+              <label for="id">Venue Id</label>
+              <input type="number" name="id" class="form-control" value=@Model>
+            </div>
+          </div>
+          
           <div class="col-12">
             <div class="form-group">
-              <button type="submit" name="button" class="btn btn-lg btn-danger">Add Band</button>
+              <label for="name">Name</label>
+              <input type="text" name="name" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" name="location" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="stars">Stars</label>
+              <input type="number" name="stars" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="hours">Hours</label>
+              <input type="text" name="hours" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" name="phone" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <button type="submit" name="button" class="btn btn-lg btn-danger">Update Venue</button>
             </div>
           </div>
         </form>
       </div>
+
     </div>
   </body>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="container" id="foot">

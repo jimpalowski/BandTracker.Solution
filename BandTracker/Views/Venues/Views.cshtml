@@ -41,13 +41,17 @@
         <div class="col-12">
           @if(Model != null)
           {
-            <h1>The List of Bands in Seattle Area</h1>
-            @foreach(var band in Model)
+            <h1>The List of Venues in Seattle Area</h1>
+            @foreach(var venue in Model)
             {
               <ul>
-                <li><b>Name: </b>@band.GetName()</li>
-                <li><b>Location: </b>@band.GetSong()</li>
-                <li><b>More Information about the band:</b> <a href="/bands/@band.GetId()"> http://seattle.band.org/MyBandBand/@band.GetId()</a></li>
+                <li><b>Name: </b>@venue.GetName()</li>
+                <li><b>Location: </b>@venue.GetLocation()</li>
+                <li><b>Stars: </b>@venue.GetStar()</li>
+                <li><b>Hours: </b>@venue.GetBusinessHour()</li>
+                <li><b>Phone: </b>@venue.GetPhone()</li>
+                <li><b>Update descrption:</b><a href="/venues/update/@venue.GetId()">http://seatle.venue.org/updateDescription/@venue.GetId()</a></li>
+                <li>More Information abouth this vanue, please visit <b><a href="/venues/@venue.GetId()">http://seatle.venue.org/MyVenue/@venue.GetId()</a></b></li>
                 <br>
               </ul>
             }
@@ -55,17 +59,16 @@
         </div>
       </div>
       <div class="row">
-        <form action="/bands/create" >
+        <form action="/venues/create" >
           <div class="col-12">
             <div class="form-group">
-              <button type="submit" name="button" class="btn btn-lg btn-danger">Add Band</button>
+              <button type="submit" name="button" class="btn btn-lg btn-danger">Add Venue</button>
             </div>
           </div>
         </form>
       </div>
     </div>
   </body>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="container" id="foot">

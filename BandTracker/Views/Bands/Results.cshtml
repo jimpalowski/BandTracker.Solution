@@ -23,7 +23,7 @@
             <a target="_blank" class="nav-link" href="/bands/view">Bands</a>
           </li>
           <li class="nav-item active">
-            <a target="_blank" class="nav-link" href="/venues">Venue</a>
+            <a target="_blank" class="nav-link" href="/venues/view">Venue</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-md-0" action="/search" method="post" name="search">
@@ -33,7 +33,7 @@
     </nav>
     <br>
     <div class="container">
-      <div class="jumbotron" style="background-image: url(http://sites.showitfast.com/57929/149683/27flora_nova_design_romantic_green_wedding_sodo_park.jpg)">
+      <div class="jumbotron" style="background-image: url(http://sites.showitfast.com/57929/149683/27flora_nova_design_romantic_green_wedding_sodo_park.jpg);border:5px solid black">
         <br><br><br><br><br><br><br><br><br><br>
       </div>
 
@@ -41,7 +41,7 @@
         <div class="col-12">
           @if(Model != null)
           {
-            <h1>The List of Bands in Seattle Area</h1>
+            <h1>This band has played in the following venues: </h1>
             @foreach(var venue in @Model["MyVenues"])
             {
               <ul>
@@ -50,12 +50,13 @@
                 <li><b>Stars: </b>@venue.GetStar()</li>
                 <li><b>Hours: </b>@venue.GetBusinessHour()</li>
                 <li><b>Phone: </b>@venue.GetPhone()</li>
+                <li><b>Update descrption:</b><a href="/venues/update/@venue.GetId()">http://seatle.venue.org/updateDescription/@venue.GetId()</a></li>
                 <br>
               </ul>
             }
             <div class="row">
 
-              <form action="/venues/artists/@Model["MyBand"].GetId() method="post">
+              <form action="/venues/artists/@Model["MyBand"].GetId()"  method="post">
                 <div class="col-12">
                   <h1>Add a new Venue</h1>
                   <div class="form-group">
